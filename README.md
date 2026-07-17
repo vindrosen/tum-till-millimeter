@@ -1,38 +1,67 @@
-# Tum till Millimeter
+<div align="center">
 
-Sveriges enkla guide för virkesdimensioner, tum-mått och byggtermer. Byggd för hemmafixare,
-snickare och alla som stöter på gamla tum-beteckningar som 2×4, 2×6 och 1×6 och snabbt vill
-veta vad de motsvarar i millimeter.
+# 🪵 Tum till Millimeter
 
-> "Kan du hämta en tvåfyra?" → 2×4 = 45 × 95 mm hyvlat, 50 × 100 mm ohyvlat.
+**Sveriges enkla guide för virkesdimensioner, tum-mått och byggtermer.**
 
-## Kom igång
+[![Live](https://img.shields.io/badge/Live-vindrosen.github.io-1c7a43?style=for-the-badge)](https://vindrosen.github.io/tum-till-millimeter/)
+[![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind](https://img.shields.io/badge/Tailwind-v4-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+
+### 👉 [Öppna sajten: vindrosen.github.io/tum-till-millimeter](https://vindrosen.github.io/tum-till-millimeter/)
+
+<img src="docs/screenshots/hero.jpg" alt="Tum till Millimeter – startsida" width="880">
+
+</div>
+
+---
+
+Byggd för hemmafixare, snickare och alla som stöter på gamla tum-beteckningar som **2×4**, **2×6**
+eller **1×6** och snabbt vill veta vad de motsvarar i millimeter.
+
+> "Kan du hämta en tvåfyra?" → 2×4 = **45 × 95 mm** hyvlat, **50 × 100 mm** ohyvlat.
+
+---
+
+## ✨ Funktioner
+
+| | |
+| --- | --- |
+| 🔎 **Vad säger snickaren?** – fritextsökning som tolkar snickarspråk (`2x4`, `tvåfyra`, `45x95`, `1 tum`, `trekvarts`, `regel till innervägg`). Visar hyvlat/ohyvlat mått, illustration, användning och relaterade dimensioner. Ingen exakt träff → närmaste alternativ. | <img src="docs/screenshots/search.jpg" width="420"> |
+| 🔁 **Snabbomvandlare** – tum ⇄ mm live medan du skriver. Stödjer decimaler (`2,5`) och bråk (`3/4`, `1 1/2`). Plus en förklaringsruta och en FAQ-förhandsvisning. | <img src="docs/screenshots/converter.jpg" width="420"> |
+| 📐 **Virkesdimensioner** – jämför hyvlat och ohyvlat mått för reglar, brädor och bjälkar. Växla yta och filtrera på kategori. Egen illustration per dimension. | <img src="docs/screenshots/virke.jpg" width="420"> |
+| 📖 **Byggordbok** – 14 snickarord förklarade med bild, exempel, relaterade ord och vanliga dimensioner. Filtrerbar. | <img src="docs/screenshots/byggordbok.jpg" width="420"> |
+
+Dessutom: **standardtabell tum → mm**, **FAQ** (även som Schema.org `FAQPage`), **mörkt läge**,
+sticky navigation, favoriter och sökhistorik (localStorage), kopiera dimension, dela, "spara till
+hemskärmen" (PWA) och **offline-stöd** via service worker.
+
+<div align="center">
+<img src="docs/screenshots/dark.jpg" alt="Mörkt läge" width="440">
+&nbsp;
+<img src="docs/screenshots/mobile.jpg" alt="Mobilvy" width="200">
+<br>
+<em>Mörkt läge och mobil-först design.</em>
+</div>
+
+---
+
+## 🚀 Kom igång
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # produktionsbygge
-npm start        # kör produktionsbygget
+npm run build    # statisk export till ./out
 ```
 
-## Funktioner
+Kräver Node 20+. Bygget lägger en färdig statisk sajt i `out/`.
 
-| Sektion | Beskrivning |
-| --- | --- |
-| **Hero** | Brädgårdsmotiv med svävande dimensioner (skarp HTML-text ovanpå bilden). |
-| **Vad säger snickaren?** | Fritextsökning som tolkar snickarspråk: `2x4`, `tvåfyra`, `45x95`, `1 tum`, `trekvarts`, `regel till innervägg`. Visar hyvlat/ohyvlat, illustration, användning och relaterade dimensioner. Saknas exakt träff visas närmaste alternativ. |
-| **Snabbomvandlare** | Tum ⇄ mm live medan du skriver. Stödjer decimaler (`2,5`) och bråk (`3/4`, `1 1/2`). |
-| **Tum-tabell** | Standardtabell tum → mm med vanliga namn och kopiering per rad. |
-| **Virkesdimensioner** | Hyvlat/ohyvlat-växling, kategorifilter och illustration per dimension. |
-| **Byggordbok** | 14 snickarord med beskrivning, bild, exempel, relaterade ord och dimensioner. |
-| **FAQ** | Vanliga frågor, även som Schema.org `FAQPage`. |
+---
 
-Dessutom: mörkt läge, sticky navigation, favoriter och sökhistorik (localStorage),
-kopiera dimension, dela, "spara till hemskärmen" (PWA) och offline-stöd via service worker.
+## 🗂️ Data – enkel att utöka
 
-## Data
-
-All data ligger i JSON och är enkel att utöka – lägg bara till ett objekt:
+All data ligger i JSON. Lägg bara till ett objekt så dyker det upp i tabeller, sök och sitemap.
 
 ```
 src/data/
@@ -42,37 +71,80 @@ src/data/
   faq.json           # frågor och svar
 ```
 
-Typerna finns i `src/lib/types.ts`. Sökmotorn (`src/lib/search.ts`) normaliserar svenska
-tecken (å/ä/ö), enhetstecken och separatorer, så `45×95`, `45x95` och `45 x 95` ger samma träff.
-Nya alias läggs till i `aliases`-fältet.
+Typerna finns i [`src/lib/types.ts`](src/lib/types.ts). Sökmotorn
+([`src/lib/search.ts`](src/lib/search.ts)) normaliserar svenska tecken (å/ä/ö), enhetstecken och
+separatorer, så `45×95`, `45x95` och `45 x 95` ger samma träff. Nya sökord läggs i `aliases`-fältet.
 
-## Teknik
+---
+
+## 🧱 Teknik
 
 - **Next.js 16** (App Router) + **TypeScript** + **Tailwind CSS v4**
-- Temafärger som CSS-variabler i `src/app/globals.css` (`@theme inline`), mörkt läge via `.dark`
-- Bilder genererade med OpenAI Image API och optimerade till WebP (hela bildmappen: 248 KB)
-- SEO: metadata, Open Graph (`public/og.png`), `robots.txt`, `sitemap.xml`, Schema.org, canonical
+- Temafärger som CSS-variabler i [`src/app/globals.css`](src/app/globals.css) (`@theme inline`), mörkt läge via `.dark`
+- Bilder genererade med OpenAI Image API, optimerade till **WebP** (hela bildmappen: 248 KB)
+- Statisk export (`output: "export"`) – ingen server behövs
+- SEO: metadata, Open Graph, `robots.txt`, `sitemap.xml`, Schema.org, canonical URLs
+- PWA: webmanifest, ikoner (inkl. maskable) och service worker för offline
 
-## Lighthouse
+---
+
+## 📊 Lighthouse
 
 | | Desktop | Mobil (strypt 4G) |
-| --- | --- | --- |
-| Performance | 99 | 77–89 |
-| Accessibility | 100 | 100 |
-| Best Practices | 100 | 100 |
-| SEO | 100 | 100 |
+| --- | :---: | :---: |
+| Performance | **99** | 77–89 |
+| Accessibility | **100** | **100** |
+| Best Practices | **100** | **100** |
+| SEO | **100** | **100** |
 
-CLS 0, total sidvikt 337 KB. Mobilsiffran varierar med maskinens belastning under mätningen;
-LCP är hero-fotot, som förladdas och levereras i ~30–40 KB.
+CLS 0, total sidvikt 337 KB. Mobilsiffran varierar med testmaskinens belastning; LCP är hero-fotot,
+som förladdas och levereras i ~30–40 KB.
 
-## Bildassets
+---
 
-Källbilderna ligger i `assets/generated/` (originalen från bildgenereringen). De optimerade
-versioner som webbplatsen använder ligger i `public/images/`. Ikoner och OG-bild genererades
-från logotypen med `sharp`.
+## 🌐 Publicering (GitHub Pages)
 
-## Måttens giltighet
+Sajten är live via `gh-pages`-grenen på **https://vindrosen.github.io/tum-till-millimeter/**.
+
+**Uppdatera den manuellt** (nuvarande metod):
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/tum-till-millimeter \
+NEXT_PUBLIC_SITE_URL=https://vindrosen.github.io/tum-till-millimeter \
+npm run build
+cd out && git init -b gh-pages && git add -A && git commit -m "Deploy" \
+  && git push --force https://github.com/vindrosen/tum-till-millimeter.git gh-pages
+```
+
+**Aktivera automatisk deploy** (rekommenderas – varje `git push` bygger och deployar):
+En färdig GitHub Actions-workflow ligger sparad som
+[`docs/github-pages-deploy.yml.txt`](docs/github-pages-deploy.yml.txt) (den räknar automatiskt ut
+`basePath` från repo-namnet). Så här slår du på den:
+
+```bash
+gh auth refresh -s workflow          # godkänn i webbläsaren
+git mv docs/github-pages-deploy.yml.txt .github/workflows/deploy.yml
+# ta bort raden ".github/workflows/" ur .gitignore
+git add -A && git commit -m "Aktivera auto-deploy" && git push
+```
+
+Sedan: repo → **Settings → Pages → Source → GitHub Actions**.
+
+> **Not:** `basePath` styrs av `NEXT_PUBLIC_BASE_PATH`. För en egen domän eller ett
+> `användarnamn.github.io`-repo ska den vara tom – workflowen hanterar det automatiskt.
+
+---
+
+## 🖼️ Bildassets
+
+Källbilderna (originalen från bildgenereringen) ligger i `assets/generated/`. De optimerade
+WebP-versionerna som sajten använder ligger i `public/images/`. Ikoner och OG-bild genererades från
+logotypen med `sharp`.
+
+---
+
+## ⚠️ Om måtten
 
 Måtten är ungefärliga standardmått. Hyvlat virke är några millimeter mindre än det sågade
-(ohyvlade) måttet – en 2×4 är nominellt 50 × 100 mm men mäter 45 × 95 mm hyvlad. Mät alltid
-själv vid kritiska mått.
+(ohyvlade) måttet – en 2×4 är nominellt 50 × 100 mm men mäter 45 × 95 mm hyvlad. **Mät alltid själv
+vid kritiska mått.**
