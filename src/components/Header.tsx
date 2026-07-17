@@ -12,6 +12,7 @@ const NAV = [
   { href: "#omvandlare", label: "Omvandlare" },
   { href: "#tabeller", label: "Tabeller" },
   { href: "#virke", label: "Virke" },
+  { href: "#byggsprak", label: "Byggspråk" },
   { href: "#byggordbok", label: "Byggordbok" },
   { href: "#faq", label: "FAQ" },
 ];

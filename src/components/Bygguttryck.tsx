@@ -1,25 +1,32 @@
 "use client";
 
 import { useMemo, useRef, useState } from "react";
-import { byggord, ordbok } from "@/lib/data";
+import { byggord, bygguttryck, ordbok, byggordById } from "@/lib/data";
 import { normalize } from "@/lib/search";
 import ByggordCard from "./ByggordCard";
 import { SearchIcon, CloseIcon } from "./Icons";
 
-export default function Byggordbok() {
+export default function Bygguttryck() {
   const [filter, setFilter] = useState("");
   const gridRef = useRef<HTMLDivElement>(null);
 
-  // Tomt filter visar ordbokens grundord; en sökning letar i hela
-  // ordförrådet så att även uttrycken från Byggspråk-sektionen hittas.
+  // Tomt filter visar uttrycken; vid sökning letar vi i hela ordförrådet
+  // så att även ordboksord som "regel" hittas härifrån.
   const filtrerade = useMemo(() => {
     const q = normalize(filter);
-    if (!q) return ordbok;
+    if (!q) return bygguttryck;
     return byggord.filter((b) => {
       const hay = normalize([b.ord, b.kort, b.beskrivning, ...b.aliases].join(" "));
       return hay.includes(q);
     });
   }, [filter]);
+
+  function visaRelaterad(id: string) {
+    const target = byggordById(id);
+    if (!target) return;
+    setFilter(target.ord);
+    gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <div>
@@ -28,8 +35,8 @@ export default function Byggordbok() {
         <input
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          aria-label="Filtrera byggord"
-          placeholder="Filtrera ord…"
+          aria-label="Filtrera bygguttryck"
+          placeholder="Filtrera uttryck…"
           className="w-full bg-transparent py-2.5 text-sm font-semibold text-ink placeholder:font-normal placeholder:text-muted focus:outline-none"
         />
         {filter && (
@@ -45,24 +52,31 @@ export default function Byggordbok() {
       </div>
 
       {filtrerade.length === 0 ? (
-        <p className="text-ink-soft">Inget byggord matchar ”{filter}”.</p>
+        <p className="text-ink-soft">Inget uttryck matchar ”{filter}”.</p>
       ) : (
-        <div ref={gridRef} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div ref={gridRef} className="grid scroll-mt-24 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {filtrerade.map((b) => (
-            <ByggordCard
-              key={b.id}
-              byggord={b}
-              onRelated={(id) => {
-                const target = byggord.find((x) => x.id === id);
-                if (target) {
-                  setFilter(target.ord);
-                  gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
-              }}
-            />
+            <ByggordCard key={b.id} byggord={b} onRelated={visaRelaterad} />
           ))}
         </div>
       )}
+
+      <div className="mt-8">
+        <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">
+          Grundorden förklaras i byggordboken
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {ordbok.map((b) => (
+            <a
+              key={b.id}
+              href="#byggordbok"
+              className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1.5 text-sm font-semibold text-ink-soft shadow-sm transition-colors hover:border-brand/40 hover:text-brand"
+            >
+              {b.ord}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

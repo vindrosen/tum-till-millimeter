@@ -4,6 +4,10 @@ import SnickarSearch from "@/components/SnickarSearch";
 import Converter from "@/components/Converter";
 import TumTabell from "@/components/TumTabell";
 import VirkeTabell from "@/components/VirkeTabell";
+import SpikTabell from "@/components/SpikTabell";
+import SkruvTabell from "@/components/SkruvTabell";
+import RorTabell from "@/components/RorTabell";
+import Bygguttryck from "@/components/Bygguttryck";
 import Byggordbok from "@/components/Byggordbok";
 import FaqAccordion from "@/components/FaqAccordion";
 import TipsBar from "@/components/TipsBar";
@@ -17,7 +21,43 @@ import {
   WoodIcon,
   BookIcon,
   SearchIcon,
+  ChatIcon,
+  NailIcon,
+  ScrewIcon,
+  PipeIcon,
+  QuoteIcon,
 } from "@/components/Icons";
+
+/** Rubrik + ingress för en undersektion i Byggspråk. */
+function UnderSektion({
+  id,
+  icon,
+  title,
+  intro,
+  children,
+}: {
+  id: string;
+  icon: React.ReactNode;
+  title: string;
+  intro: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section id={id} aria-labelledby={`${id}-rubrik`} className="scroll-mt-24">
+      <header className="mb-5 max-w-2xl">
+        <h3
+          id={`${id}-rubrik`}
+          className="flex items-center gap-3 font-display text-xl font-extrabold tracking-tight text-wood-strong sm:text-2xl"
+        >
+          <IconChip>{icon}</IconChip>
+          {title}
+        </h3>
+        <p className="mt-3 text-base leading-relaxed text-ink-soft">{intro}</p>
+      </header>
+      {children}
+    </section>
+  );
+}
 
 export default function Home() {
   const jsonLd = buildJsonLd();
@@ -25,6 +65,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      {/* Extra ankare för djuplänkar till snickarspråks-sökningen. */}
+      <span id="snickarsprak" aria-hidden="true" />
 
       {/* Vad säger snickaren? – intelligent sökning */}
       <Section
@@ -85,6 +128,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Extra ankare för djuplänkar till traditionella mått. */}
+      <span id="traditionella-matt" aria-hidden="true" />
+
       {/* Standard tum-tabell */}
       <Section
         id="tabeller"
@@ -108,9 +154,57 @@ export default function Home() {
         <VirkeTabell />
       </Section>
 
+      {/* Byggspråk – gamla mått, uttryck och benämningar */}
+      <Section
+        id="byggsprak"
+        eyebrow="Snickarspråk"
+        icon={<ChatIcon width={18} height={18} />}
+        title="Byggspråk"
+        intro="Gamla mått, uttryck och benämningar som fortfarande används av snickare."
+      >
+        <div className="space-y-14">
+          <UnderSektion
+            id="spik"
+            icon={<NailIcon width={20} height={20} />}
+            title="Spiklängder"
+            intro="Spik beställs fortfarande i tum: en fyrtumsspik är 100 mm och kallas därför också 100-spik. Sök på tumnamnet eller millimeterlängden – båda hittar rätt."
+          >
+            <SpikTabell />
+          </UnderSektion>
+
+          <UnderSektion
+            id="skruvar"
+            icon={<ScrewIcon width={20} height={20} />}
+            title="Skruvar"
+            intro="Träskruv följer samma tumlogik som spik. Här är de vanligaste längderna och vad de brukar användas till."
+          >
+            <SkruvTabell />
+          </UnderSektion>
+
+          <UnderSektion
+            id="rordimensioner"
+            icon={<PipeIcon width={20} height={20} />}
+            title="Rördimensioner"
+            intro="Rör i tum är något helt eget – ett halvtumsrör är varken 12,7 mm invändigt eller utvändigt. Tabellen visar vad tummåtten faktiskt motsvarar."
+          >
+            <RorTabell />
+          </UnderSektion>
+
+          <UnderSektion
+            id="bygguttryck"
+            icon={<QuoteIcon width={20} height={20} />}
+            title="Bygguttryck"
+            intro="Syll, hammarband, kortling och lockläkt – uttrycken som hörs på bygget, förklarade med bild, mått och relaterade ord."
+          >
+            <Bygguttryck />
+          </UnderSektion>
+        </div>
+      </Section>
+
       {/* Byggordbok */}
       <Section
         id="byggordbok"
+        tone="soft"
         eyebrow="Byggordbok"
         icon={<BookIcon width={18} height={18} />}
         title="Snickarord förklarade"
@@ -122,7 +216,6 @@ export default function Home() {
       {/* FAQ */}
       <Section
         id="faq"
-        tone="soft"
         eyebrow="FAQ"
         icon={<QuestionIcon width={18} height={18} />}
         title="Frågor och svar om tum och virke"

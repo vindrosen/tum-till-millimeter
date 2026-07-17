@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { sok, harExaktTraff, autocomplete } from "@/lib/search";
 import { dimensionById } from "@/lib/data";
 import { mmValue } from "@/lib/format";
 import type { SokTraff } from "@/lib/types";
 import { useStringList } from "@/lib/useStorage";
+import { withBase } from "@/lib/basepath";
 import DimensionCard from "./DimensionCard";
 import ByggordCard from "./ByggordCard";
 import { SearchIcon, CloseIcon, StarIcon, SearchIcon as Magnify } from "./Icons";
@@ -14,11 +16,12 @@ const EXEMPEL = [
   "2x4",
   "tvåfyra",
   "45x95",
-  "50x100",
   "1 tum",
   "trekvarts",
-  "tvåsex",
-  "1x6",
+  "fyrtumsspik",
+  "halvtum",
+  "1/2 rör",
+  "syll",
   "regel till innervägg",
 ];
 
@@ -39,6 +42,8 @@ export default function SnickarSearch() {
   const dims = traffar.filter((t) => t.typ === "dimension").slice(0, 3);
   const ord = traffar.filter((t) => t.typ === "byggord").slice(0, 2);
   const tum = traffar.filter((t) => t.typ === "tum").slice(0, 4);
+  const jarn = traffar.filter((t) => t.typ === "spik" || t.typ === "skruv").slice(0, 3);
+  const rorTraffar = traffar.filter((t) => t.typ === "ror").slice(0, 3);
 
   useEffect(() => {
     function onDoc(e: MouseEvent) {
@@ -261,6 +266,86 @@ export default function SnickarSearch() {
                     }}
                   />
                 ))}
+
+                {jarn.length > 0 && (
+                  <div className="card p-4">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">
+                      Spik &amp; skruv
+                    </p>
+                    <ul className="divide-y divide-border">
+                      {jarn.map((t) => {
+                        const s = (t.spik ?? t.skruv)!;
+                        return (
+                          <li key={s.id} className="flex items-center gap-3 py-2">
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-white">
+                              <Image
+                                src={withBase(s.bild)}
+                                alt={`Illustration av ${s.namn}`}
+                                width={64}
+                                height={64}
+                                className="h-8 w-8 object-contain"
+                              />
+                            </span>
+                            <div className="min-w-0 flex-1">
+                              <p className="font-bold leading-tight text-ink">{s.namn}</p>
+                              <p className="truncate text-sm text-muted">{s.anvandning}</p>
+                            </div>
+                            <span className="tabnum shrink-0 font-extrabold text-brand">
+                              {s.mm} mm
+                            </span>
+                            <a
+                              href={t.typ === "spik" ? "#spik" : "#skruvar"}
+                              className="shrink-0 text-xs font-bold text-brand underline-offset-2 hover:underline"
+                            >
+                              Tabell
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
+
+                {rorTraffar.length > 0 && (
+                  <div className="card p-4">
+                    <p className="mb-2 text-xs font-bold uppercase tracking-wide text-muted">
+                      Rördimensioner
+                    </p>
+                    <ul className="divide-y divide-border">
+                      {rorTraffar.map((t) => {
+                        const r = t.ror!;
+                        return (
+                          <li key={r.id} className="flex items-center gap-3 py-2">
+                            <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-white">
+                              <Image
+                                src={withBase("/images/ror.webp")}
+                                alt=""
+                                width={64}
+                                height={64}
+                                className="h-8 w-8 object-contain"
+                              />
+                            </span>
+                            <div className="min-w-0 flex-1">
+                              <p className="font-bold leading-tight text-ink">
+                                {r.namn} rör <span className="text-sm text-muted">({r.dn})</span>
+                              </p>
+                              <p className="truncate text-sm text-muted">{r.anvandning}</p>
+                            </div>
+                            <span className="tabnum shrink-0 font-extrabold text-brand">
+                              Ø {mmValue(r.ytterdiameter)} mm
+                            </span>
+                            <a
+                              href="#rordimensioner"
+                              className="shrink-0 text-xs font-bold text-brand underline-offset-2 hover:underline"
+                            >
+                              Tabell
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
 
                 {tum.length > 0 && (
                   <div className="card p-4">

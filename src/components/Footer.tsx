@@ -7,6 +7,7 @@ const LÄNKAR = [
   { href: "#omvandlare", label: "Omvandlare" },
   { href: "#tabeller", label: "Tum-tabell" },
   { href: "#virke", label: "Virkesdimensioner" },
+  { href: "#byggsprak", label: "Byggspråk" },
   { href: "#byggordbok", label: "Byggordbok" },
   { href: "#faq", label: "Vanliga frågor" },
 ];

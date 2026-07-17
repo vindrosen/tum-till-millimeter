@@ -187,6 +187,53 @@ export function BookIcon(props: IconProps) {
   );
 }
 
+export function ChatIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-5 4V6Z" />
+    </svg>
+  );
+}
+
+export function NailIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M7.5 4h9" />
+      <path d="M12 4v12" />
+      <path d="m12 20.5-1.8-4.5h3.6L12 20.5Z" />
+    </svg>
+  );
+}
+
+export function ScrewIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M8.5 3.5h7L14 7h-4l-1.5-3.5Z" />
+      <path d="M12 7v10" />
+      <path d="m9.7 9.6 4.6-1.8M9.7 12.6l4.6-1.8M9.7 15.6l4.6-1.8" />
+      <path d="m12 20.5-1.2-3.5h2.4L12 20.5Z" />
+    </svg>
+  );
+}
+
+export function PipeIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <rect x="3" y="9" width="18" height="6" rx="1.2" />
+      <path d="M6.5 9v6M17.5 9v6" />
+    </svg>
+  );
+}
+
+export function QuoteIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M10 7.5H7.5A2.5 2.5 0 0 0 5 10v1.5A2.5 2.5 0 0 0 7.5 14H8v2.5" />
+      <path d="M19 7.5h-2.5A2.5 2.5 0 0 0 14 10v1.5a2.5 2.5 0 0 0 2.5 2.5h.5v2.5" />
+    </svg>
+  );
+}
+
 export function DownloadIcon(props: IconProps) {
   return (
     <svg {...base(props)}>
