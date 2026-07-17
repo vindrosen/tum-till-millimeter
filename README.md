@@ -31,7 +31,8 @@ eller **1×6** och snabbt vill veta vad de motsvarar i millimeter.
 | 🔎 **Vad säger snickaren?** – fritextsökning som tolkar snickarspråk (`2x4`, `tvåfyra`, `45x95`, `1 tum`, `trekvarts`, `regel till innervägg`). Visar hyvlat/ohyvlat mått, illustration, användning och relaterade dimensioner. Ingen exakt träff → närmaste alternativ. | <img src="docs/screenshots/search.jpg" width="420"> |
 | 🔁 **Snabbomvandlare** – tum ⇄ mm live medan du skriver. Stödjer decimaler (`2,5`) och bråk (`3/4`, `1 1/2`). Plus en förklaringsruta och en FAQ-förhandsvisning. | <img src="docs/screenshots/converter.jpg" width="420"> |
 | 📐 **Virkesdimensioner** – jämför hyvlat och ohyvlat mått för reglar, brädor och bjälkar. Växla yta och filtrera på kategori. Egen illustration per dimension. | <img src="docs/screenshots/virke.jpg" width="420"> |
-| 📖 **Byggordbok** – 14 snickarord förklarade med bild, exempel, relaterade ord och vanliga dimensioner. Filtrerbar. | <img src="docs/screenshots/byggordbok.jpg" width="420"> |
+| 📖 **Byggordbok** – snickarord förklarade med bild, exempel, relaterade ord och vanliga dimensioner. Filtrerbar. | <img src="docs/screenshots/byggordbok.jpg" width="420"> |
+| 🔨 **Byggspråk** – gamla mått och uttryck som fortfarande används: spiklängder (fyrtumsspik = 100-spik), skruvlängder, rördimensioner (varför 1/2″ inte är 12,7 mm) och 18 bygguttryck som syll, hammarband, lockläkt och takstol. Sökbara tabeller med egna illustrationer. | |
 
 Dessutom: **standardtabell tum → mm**, **FAQ** (även som Schema.org `FAQPage`), **mörkt läge**,
 sticky navigation, favoriter och sökhistorik (localStorage), kopiera dimension, dela, "spara till
@@ -66,14 +67,20 @@ All data ligger i JSON. Lägg bara till ett objekt så dyker det upp i tabeller,
 ```
 src/data/
   dimensioner.json   # virkesdimensioner (hyvlat/ohyvlat, alias, relaterade)
-  byggord.json       # byggordboken
+  byggord.json       # byggordboken + bygguttrycken (grupp: "uttryck")
+  spik.json          # traditionella spiklängder (2″–6″)
+  skruv.json         # träskruvslängder (2″–5″)
+  ror.json           # rördimensioner (1/8″–2″ med DN och ytterdiameter)
   tumtabell.json     # tum → mm
   faq.json           # frågor och svar
 ```
 
 Typerna finns i [`src/lib/types.ts`](src/lib/types.ts). Sökmotorn
 ([`src/lib/search.ts`](src/lib/search.ts)) normaliserar svenska tecken (å/ä/ö), enhetstecken och
-separatorer, så `45×95`, `45x95` och `45 x 95` ger samma träff. Nya sökord läggs i `aliases`-fältet.
+separatorer, så `45×95`, `45x95` och `45 x 95` ger samma träff – och synonymer som `4 tum spik`,
+`fyrtumsspik`, `100 mm spik` och `100-spik` landar på samma rad. Stavfel fångas med en
+fuzzy-nivå (`råspånt` → råspont). Nya sökord läggs i `aliases`-fältet. Söklogiken verifieras med
+`npm run test:search`.
 
 ---
 

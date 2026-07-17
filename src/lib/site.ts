@@ -5,7 +5,7 @@ export const site = {
   // Sätts vid bygget (GitHub Actions fyller i Pages-URL:en). Fallback för lokalt bruk.
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://tumtillmillimeter.se",
   description:
-    "Sveriges enkla guide för virkesdimensioner och tum-mått. Omvandla tum till millimeter, se vad 2x4, 2x6 och 1x6 blir i mm, jämför hyvlat och ohyvlat och slå upp snickarord i byggordboken.",
+    "Sveriges enkla guide för virkesdimensioner, tum-mått och byggspråk. Omvandla tum till millimeter, se vad 2x4 blir i mm, jämför hyvlat och ohyvlat och slå upp spiklängder, rördimensioner och snickarord.",
   locale: "sv_SE",
   keywords: [
     "tum till mm",
@@ -29,5 +29,24 @@ export const site = {
     "snickarord",
     "hyvlat vs ohyvlat",
     "omvandla tum",
+    "byggspråk",
+    "snickarspråk",
+    "spiklängder",
+    "fyrtumsspik",
+    "100-spik",
+    "spik i tum",
+    "skruvlängder tum",
+    "rördimensioner tum",
+    "halvtumsrör",
+    "trekvartsrör",
+    "syll",
+    "hammarband",
+    "kortling",
+    "lockläkt",
+    "takstol",
+    "sparre",
+    "bärande vägg",
+    "bygguttryck",
+    "traditionella byggmått",
   ],
 } as const;

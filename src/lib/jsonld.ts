@@ -1,5 +1,5 @@
 import { site } from "./site";
-import { faq, dimensioner } from "./data";
+import { faq, dimensioner, byggord, spik, skruv, ror } from "./data";
 import { mmValue } from "./format";
 
 export function buildJsonLd() {
@@ -54,8 +54,66 @@ export function buildJsonLd() {
     inDefinedTermSet: `${site.url}/#byggordbok`,
   };
 
+  // Alla byggord och bygguttryck som DefinedTerm i en gemensam termsamling.
+  const ordbokSet = {
+    "@type": "DefinedTermSet",
+    "@id": `${site.url}/#termer`,
+    name: "Byggordbok och byggspråk",
+    description:
+      "Svenska byggord, snickaruttryck och traditionella mått förklarade med moderna millimetermått.",
+    inLanguage: "sv-SE",
+    url: `${site.url}/#byggsprak`,
+  };
+
+  const byggordTermer = byggord.map((b) => ({
+    "@type": "DefinedTerm",
+    "@id": `${site.url}/#term-${b.id}`,
+    name: b.ord,
+    description: b.kort,
+    inDefinedTermSet: `${site.url}/#termer`,
+    url: `${site.url}/${b.grupp === "uttryck" ? "#bygguttryck" : "#byggordbok"}`,
+  }));
+
+  const spikTermer = spik.map((s) => ({
+    "@type": "DefinedTerm",
+    "@id": `${site.url}/#term-${s.id}`,
+    name: s.namn,
+    description: `${s.tum} spik är ${s.mm} mm lång och kallas även ${s.mm}-spik. ${s.anvandning}`,
+    inDefinedTermSet: `${site.url}/#termer`,
+    url: `${site.url}/#spik`,
+  }));
+
+  const skruvTermer = skruv.map((s) => ({
+    "@type": "DefinedTerm",
+    "@id": `${site.url}/#term-${s.id}`,
+    name: s.namn,
+    description: `${s.tum} träskruv är ${s.mm} mm lång. ${s.anvandning}`,
+    inDefinedTermSet: `${site.url}/#termer`,
+    url: `${site.url}/#skruvar`,
+  }));
+
+  const rorTermer = ror.map((r) => ({
+    "@type": "DefinedTerm",
+    "@id": `${site.url}/#term-${r.id}`,
+    name: `${r.namn} rör (${r.dn})`,
+    description: `Nominell rördimension ${r.tum} (${r.dn}) med cirka ${mmValue(r.ytterdiameter)} mm ytterdiameter. ${r.anvandning}`,
+    inDefinedTermSet: `${site.url}/#termer`,
+    url: `${site.url}/#rordimensioner`,
+  }));
+
   return {
     "@context": "https://schema.org",
-    "@graph": [webSite, webApp, faqPage, dimensionList, tumFakta],
+    "@graph": [
+      webSite,
+      webApp,
+      faqPage,
+      dimensionList,
+      tumFakta,
+      ordbokSet,
+      ...byggordTermer,
+      ...spikTermer,
+      ...skruvTermer,
+      ...rorTermer,
+    ],
   };
 }
