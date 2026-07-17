@@ -1,4 +1,4 @@
-import { dimensioner, byggord, tumtabell } from "./data";
+import { dimensioner, byggord, tumtabell, spik, skruv, ror } from "./data";
 import type { SokTraff } from "./types";
 
 /**
@@ -21,6 +21,27 @@ export function normalize(input: string): string {
 interface AliasScore {
   score: number;
   exakt: boolean;
+}
+
+/**
+ * Begränsad Levenshtein-distans med tidigt avbrott – returnerar max + 1
+ * om avståndet överstiger max. Räcker för korta sökord och alias.
+ */
+function editDistance(a: string, b: string, max: number): number {
+  if (Math.abs(a.length - b.length) > max) return max + 1;
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    const curr = [i];
+    let radMin = i;
+    for (let j = 1; j <= b.length; j++) {
+      const kostnad = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + kostnad);
+      radMin = Math.min(radMin, curr[j]);
+    }
+    if (radMin > max) return max + 1;
+    prev = curr;
+  }
+  return prev[b.length];
 }
 
 function bestAliasScore(rawQuery: string, aliases: string[]): AliasScore {
@@ -54,6 +75,20 @@ function bestAliasScore(rawQuery: string, aliases: string[]): AliasScore {
     }
     if (a.length >= 4 && q.length >= 3 && a.includes(q)) {
       best = Math.max(best, 58);
+    }
+  }
+
+  // Fuzzy-nivå: fångar stavfel ("råspånt" → "råspont") när inget annat
+  // matchar. Aldrig en exakt träff – UI:t visar "närmaste alternativ".
+  if (best === 0 && q.length >= 4) {
+    const max = q.length <= 6 ? 1 : 2;
+    for (const alias of aliases) {
+      const a = normalize(alias ?? "");
+      if (a.length < 4) continue;
+      if (editDistance(q, a, max) <= max) {
+        best = 42;
+        break;
+      }
     }
   }
   return { score: best, exakt };
@@ -94,6 +129,21 @@ export function sok(rawQuery: string): SokTraff[] {
     if (score > 0) traffar.push({ typ: "tum", score: score - 3, exakt, tum: t });
   }
 
+  for (const s of spik) {
+    const { score, exakt } = bestAliasScore(rawQuery, [...s.aliases, s.namn]);
+    if (score > 0) traffar.push({ typ: "spik", score, exakt, spik: s });
+  }
+
+  for (const s of skruv) {
+    const { score, exakt } = bestAliasScore(rawQuery, [...s.aliases, s.namn]);
+    if (score > 0) traffar.push({ typ: "skruv", score, exakt, skruv: s });
+  }
+
+  for (const r of ror) {
+    const { score, exakt } = bestAliasScore(rawQuery, [...r.aliases, r.dn, `${r.tum} rör`]);
+    if (score > 0) traffar.push({ typ: "ror", score: score - 1, exakt, ror: r });
+  }
+
   // Lika poäng: låt vanliga dimensioner (2×4, 2×6, 1×6) gå före udda klenare mått,
   // så "regel till innervägg" visar tvåfyran först.
   const popRank = (t: SokTraff) => (t.dimension?.popular ? 1 : 0);
@@ -122,6 +172,15 @@ export function autocomplete(rawQuery: string, max = 6): Forslag[] {
     }
     if (t.typ === "byggord" && t.byggord) {
       return { label: t.byggord.ord, sub: t.byggord.kort };
+    }
+    if (t.typ === "spik" && t.spik) {
+      return { label: t.spik.namn, sub: `${t.spik.mm} mm · spik` };
+    }
+    if (t.typ === "skruv" && t.skruv) {
+      return { label: t.skruv.namn, sub: `${t.skruv.mm} mm · skruv` };
+    }
+    if (t.typ === "ror" && t.ror) {
+      return { label: `${t.ror.namn} rör`, sub: `${t.ror.dn} · utv. Ø ${t.ror.ytterdiameter} mm` };
     }
     return { label: t.tum!.tum, sub: `${t.tum!.namn}` };
   });
