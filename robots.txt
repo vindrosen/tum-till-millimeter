@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://vindrosen.github.io/tum-till-millimeter
+Sitemap: https://vindrosen.github.io/tum-till-millimeter/sitemap.xml
