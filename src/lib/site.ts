@@ -1,0 +1,33 @@
+export const site = {
+  name: "Tum till Millimeter",
+  shortName: "Tum→mm",
+  slogan: "Förenklar bygget",
+  // Sätts vid bygget (GitHub Actions fyller i Pages-URL:en). Fallback för lokalt bruk.
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://tumtillmillimeter.se",
+  description:
+    "Sveriges enkla guide för virkesdimensioner och tum-mått. Omvandla tum till millimeter, se vad 2x4, 2x6 och 1x6 blir i mm, jämför hyvlat och ohyvlat och slå upp snickarord i byggordboken.",
+  locale: "sv_SE",
+  keywords: [
+    "tum till mm",
+    "tum i millimeter",
+    "2x4 i mm",
+    "2x6 i mm",
+    "1x6 i mm",
+    "45x95",
+    "45x145",
+    "regeldimensioner",
+    "virkesdimensioner",
+    "trädimensioner",
+    "byggmått",
+    "brädmått",
+    "hyvlad regel",
+    "ohyvlad regel",
+    "tvåfyra",
+    "tvåsex",
+    "trekvarts tum",
+    "byggordbok",
+    "snickarord",
+    "hyvlat vs ohyvlat",
+    "omvandla tum",
+  ],
+} as const;

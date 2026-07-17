@@ -1,0 +1,156 @@
+[
+  {
+    "id": "tvafyra",
+    "ord": "Tvåfyra",
+    "kort": "Vardagligt namn för en 2×4-regel.",
+    "beskrivning": "\"Tvåfyra\" är snickarslang för en regel på 2 × 4 tum, alltså det som såglagt mäter 50 × 100 mm och hyvlat 45 × 95 mm. Det är den vanligaste regeln i svenska väggstommar.",
+    "exempel": ["\"Kan du hämta en tvåfyra?\"", "En innervägg byggs oftast av tvåfyra med 45 eller 60 cm mellan reglarna."],
+    "relaterade": ["regel", "tvasex", "dimension"],
+    "dimensioner": ["2x4"],
+    "bild": "/images/plank-regel.webp",
+    "aliases": ["tvåfyra", "tvafyra", "två fyra", "tva fyra", "2x4", "2×4"]
+  },
+  {
+    "id": "tvasex",
+    "ord": "Tvåsex",
+    "kort": "Vardagligt namn för en 2×6-regel eller bjälke.",
+    "beskrivning": "\"Tvåsex\" betyder 2 × 6 tum, ohyvlat 50 × 150 mm och hyvlat 45 × 145 mm. Används där man behöver mer bärighet än en tvåfyra ger, till exempel i bjälklag och tak.",
+    "exempel": ["Golvbjälkarna är av tvåsex.", "Till ett större spännvidd tar du hellre en tvåsex än en tvåfyra."],
+    "relaterade": ["tvafyra", "bjalke", "regel"],
+    "dimensioner": ["2x6"],
+    "bild": "/images/plank-beam.webp",
+    "aliases": ["tvåsex", "tvasex", "två sex", "tva sex", "2x6", "2×6"]
+  },
+  {
+    "id": "trekvarts",
+    "ord": "Trekvarts",
+    "kort": "3/4 tum, alltså cirka 19 mm.",
+    "beskrivning": "\"Trekvarts\" är kortformen för trekvarts tum (3/4″) som motsvarar 19,05 mm. Uttrycket används ofta om tunnare virke, plywoodtjocklekar och rör.",
+    "exempel": ["En trekvartsskiva är 19 mm tjock.", "\"Det är trekvarts\" – alltså 3/4 tum ≈ 19 mm."],
+    "relaterade": ["dimension", "hyvlat", "tvafyra"],
+    "dimensioner": [],
+    "bild": "/images/plank-board.webp",
+    "aliases": ["trekvarts", "trekvart", "tre kvarts", "3/4", "3/4 tum"]
+  },
+  {
+    "id": "regel",
+    "ord": "Regel",
+    "kort": "Stående eller liggande virke i en stomme eller vägg.",
+    "beskrivning": "En regel är det konstruktionsvirke som bildar stommen i väggar, tak och golv. Reglarna sätts med jämna mellanrum (ofta c/c 450 eller 600 mm) och kläs sedan med skivor eller panel. Vanligaste dimensionen är 2×4.",
+    "exempel": ["Väggen reses med reglar av tvåfyra.", "Sätt reglarna c/c 600."],
+    "relaterade": ["tvafyra", "lakt", "kortling", "konstruktionsvirke"],
+    "dimensioner": ["2x4", "2x3", "2x6"],
+    "bild": "/images/plank-regel.webp",
+    "aliases": ["regel", "reglar", "stomme", "väggregel"]
+  },
+  {
+    "id": "lakt",
+    "ord": "Läkt",
+    "kort": "Klen list som virke fästs mot eller på.",
+    "beskrivning": "Läkt är tunt, smalt virke som används för att skapa avstånd, luftspalt eller infästning – till exempel ströläkt och bärläkt under takpannor, eller spikläkt bakom panel.",
+    "exempel": ["Ströläkt och bärläkt läggs innan takpannorna.", "Panelen spikas mot läkt."],
+    "relaterade": ["regel", "panel", "dimension"],
+    "dimensioner": ["1x2", "2x2"],
+    "bild": "/images/plank-lakt.webp",
+    "aliases": ["läkt", "lakt", "spikläkt", "bärläkt", "ströläkt", "list"]
+  },
+  {
+    "id": "panel",
+    "ord": "Panel",
+    "kort": "Brädor som kläs på vägg eller tak.",
+    "beskrivning": "Panel är profilerade brädor som monteras tätt intill varandra för att klä en yta invändigt eller utvändigt. Ofta spontade (not och fjäder) så att de låser i varandra. Vanliga typer är pärlspont och fasspont.",
+    "exempel": ["Innertaket kläs med vitmålad pärlspontpanel.", "Fasaden får en stående panel."],
+    "relaterade": ["rasspont", "lakt", "hyvlat"],
+    "dimensioner": ["1x4", "1x6"],
+    "bild": "/images/byggord-panel.webp",
+    "aliases": ["panel", "pärlspont", "fasspont", "spontad panel", "beklädnad"]
+  },
+  {
+    "id": "rasspont",
+    "ord": "Råspont",
+    "kort": "Spontade grova brädor till golv och tak.",
+    "beskrivning": "Råspont är kraftiga, spontade brädor (not och fjäder) som används som underlag för golv, tak och yttertak. Ytan är ohyvlad men kanterna är profilerade så att brädorna låser i varandra och bildar ett styvt skikt.",
+    "exempel": ["Yttertaket täcks med råspont innan papp och läkt.", "Råspont 22 mm läggs som undergolv."],
+    "relaterade": ["panel", "ohyvlat", "bjalke"],
+    "dimensioner": ["1x6", "1x8"],
+    "bild": "/images/byggord-rasspont.webp",
+    "aliases": ["råspont", "rasspont", "raspont", "spont", "underlagsspont"]
+  },
+  {
+    "id": "hyvlat",
+    "ord": "Hyvlat",
+    "kort": "Virke med slät, bearbetad yta – lite mindre mått.",
+    "beskrivning": "Hyvlat virke har körts genom en hyvel så att ytan blir slät och kanterna jämna. I samma veva krymper måtten några millimeter jämfört med det sågade virket – därför är en hyvlad 2×4 bara 45 × 95 mm.",
+    "exempel": ["Hyvlad regel 45 × 95 mm.", "Vill du ha en slät yta väljer du hyvlat."],
+    "relaterade": ["ohyvlat", "dimension", "regel"],
+    "dimensioner": ["2x4", "1x6"],
+    "bild": "/images/byggord-hyvlat-ohyvlat.webp",
+    "aliases": ["hyvlat", "hyvlad", "hyvel", "slät", "planed"]
+  },
+  {
+    "id": "ohyvlat",
+    "ord": "Ohyvlat",
+    "kort": "Sågat virke med grov yta – det fulla måttet.",
+    "beskrivning": "Ohyvlat (sågat) virke har den grova ytan direkt från sågen och behåller sitt fulla nominella mått, till exempel 50 × 100 mm för en 2×4. Det används där ytan inte syns eller ska vara robust, som i bärande konstruktioner och formvirke.",
+    "exempel": ["Ohyvlad 2×4 mäter 50 × 100 mm.", "Till stommen räcker det med ohyvlat virke."],
+    "relaterade": ["hyvlat", "dimension", "rasspont"],
+    "dimensioner": ["2x4", "2x6"],
+    "bild": "/images/byggord-hyvlat-ohyvlat.webp",
+    "aliases": ["ohyvlat", "ohyvlad", "sågat", "sagat", "råsågat", "grov"]
+  },
+  {
+    "id": "dimension",
+    "ord": "Dimension",
+    "kort": "Virkets mått – tjocklek × bredd.",
+    "beskrivning": "Dimension är ett samlingsord för virkets mått, oftast angivet som tjocklek × bredd i millimeter (t.ex. 45 × 95) eller i tum (2×4). Längden anges separat. När man pratar dimension menar man alltså grovleken på virket.",
+    "exempel": ["\"Vilken dimension ska jag ta?\" – 45 × 95.", "Rätt dimension avgör hur mycket virket bär."],
+    "relaterade": ["hyvlat", "ohyvlat", "regel"],
+    "dimensioner": ["2x4", "2x6", "1x6"],
+    "bild": "/images/byggord-dimension.webp",
+    "aliases": ["dimension", "mått", "matt", "grovlek", "storlek"]
+  },
+  {
+    "id": "barlina",
+    "ord": "Bärlina",
+    "kort": "Bärande balk som andra bjälkar vilar på.",
+    "beskrivning": "En bärlina är en kraftig, oftast liggande balk som tar upp last från bjälkar eller golv och för den vidare till stolpar eller grund. Vanlig under altandäck och i golvbjälklag.",
+    "exempel": ["Altanens golvbjälkar vilar på en bärlina.", "Bärlinan bärs upp av plintar."],
+    "relaterade": ["bjalke", "regel", "konstruktionsvirke"],
+    "dimensioner": ["2x8", "2x6"],
+    "bild": "/images/plank-beam.webp",
+    "aliases": ["bärlina", "barlina", "lejd", "bärbalk"]
+  },
+  {
+    "id": "bjalke",
+    "ord": "Bjälke",
+    "kort": "Bärande balk i golv, tak eller bjälklag.",
+    "beskrivning": "En bjälke är en bärande balk som spänner mellan väggar eller bärlinor och bär upp golv eller tak. Bjälkarna bildar tillsammans ett bjälklag. Dimensionen väljs efter spännvidd och last, ofta 2×6 eller större.",
+    "exempel": ["Golvbjälkarna är av tvåsex.", "Bjälklaget vilar på ytterväggarna."],
+    "relaterade": ["barlina", "tvasex", "konstruktionsvirke"],
+    "dimensioner": ["2x6", "2x8"],
+    "bild": "/images/plank-beam.webp",
+    "aliases": ["bjälke", "bjalke", "balk", "golvbjälke", "takbjälke", "bjälklag"]
+  },
+  {
+    "id": "konstruktionsvirke",
+    "ord": "Konstruktionsvirke",
+    "kort": "Hållfasthetssorterat virke för bärande delar.",
+    "beskrivning": "Konstruktionsvirke är virke som är sorterat och märkt efter hållfasthet (t.ex. klass C24). Det används i bärande konstruktioner där styrkan är viktig – reglar, bjälkar och takstolar. Märkningen garanterar att virket håller för beräknade laster.",
+    "exempel": ["Stommen byggs av konstruktionsvirke C24.", "Bärande delar ska vara hållfasthetssorterade."],
+    "relaterade": ["regel", "bjalke", "barlina"],
+    "dimensioner": ["2x4", "2x6", "2x8"],
+    "bild": "/images/byggord-konstruktionsvirke.webp",
+    "aliases": ["konstruktionsvirke", "c24", "c14", "hållfasthetssorterat", "reglat virke"]
+  },
+  {
+    "id": "kortling",
+    "ord": "Kortling",
+    "kort": "Kort tvärstycke mellan två reglar.",
+    "beskrivning": "En kortling är en kort bit virke som sätts tvärs mellan två reglar eller bjälkar. Den styvar upp stommen, hindrar reglarna från att vrida sig och ger fäste för till exempel skivskarvar, hyllor eller köksskåp.",
+    "exempel": ["Sätt en kortling där skivorna skarvar.", "Kortlingar mellan reglarna ger fäste för väggskåpen."],
+    "relaterade": ["regel", "tvafyra", "bjalke"],
+    "dimensioner": ["2x4"],
+    "bild": "/images/byggord-kortling.webp",
+    "aliases": ["kortling", "kortlingar", "tvärregel", "blockning", "kubb"]
+  }
+]

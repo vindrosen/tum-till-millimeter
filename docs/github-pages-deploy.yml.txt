@@ -1,0 +1,61 @@
+name: Deploy till GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Behörigheter som deploy till Pages kräver.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Låt bara en deploy köra i taget.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Räknar ut basePath och sajt-URL automatiskt från repo-namnet.
+      # Projekt-repo "foo" -> basePath "/foo". Repo "namn.github.io" -> tom basePath.
+      - name: Räkna ut basePath
+        run: |
+          REPO="${GITHUB_REPOSITORY#*/}"
+          OWNER_LC=$(echo "${GITHUB_REPOSITORY%/*}" | tr '[:upper:]' '[:lower:]')
+          REPO_LC=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
+          if [ "$REPO_LC" = "$OWNER_LC.github.io" ]; then
+            echo "NEXT_PUBLIC_BASE_PATH=" >> "$GITHUB_ENV"
+            echo "NEXT_PUBLIC_SITE_URL=https://$OWNER_LC.github.io" >> "$GITHUB_ENV"
+          else
+            echo "NEXT_PUBLIC_BASE_PATH=/$REPO" >> "$GITHUB_ENV"
+            echo "NEXT_PUBLIC_SITE_URL=https://$OWNER_LC.github.io/$REPO" >> "$GITHUB_ENV"
+          fi
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

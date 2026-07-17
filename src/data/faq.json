@@ -1,0 +1,34 @@
+[
+  {
+    "fraga": "Varför används tum i bygg?",
+    "svar": "Tum är ett gammalt mått som hänger kvar sedan innan Sverige gick över till metersystemet. Virke, rör och skivor tillverkades länge i tumbaserade mått, och benämningarna som 2×4 och 1×6 har levt vidare i branschen. Idag mäter vi i millimeter, men de gamla namnen används fortfarande i dagligt tal."
+  },
+  {
+    "fraga": "Vad betyder 2×4?",
+    "svar": "2×4 betyder 2 tum × 4 tum och syftar på virkets tjocklek och bredd. Omräknat blir det 50 × 100 mm ohyvlat (sågat) och 45 × 95 mm hyvlat. Det är den vanligaste regeln i svenska väggstommar och kallas i vardagligt tal för en \"tvåfyra\"."
+  },
+  {
+    "fraga": "Varför stämmer inte måtten?",
+    "svar": "När man säger 2×4 menar man det nominella måttet – alltså den ursprungliga storleken på det sågade virket (50 × 100 mm). När virket sedan hyvlas slätt försvinner några millimeter på varje sida, och kvar blir 45 × 95 mm. Måttet \"krymper\" alltså inte av misstag utan är en följd av bearbetningen."
+  },
+  {
+    "fraga": "Hyvlat eller ohyvlat – vad är skillnaden?",
+    "svar": "Ohyvlat (sågat) virke har en grov yta direkt från sågen och behåller sitt fulla mått, t.ex. 50 × 100 mm. Hyvlat virke har körts genom en hyvel så att ytan blir slät och kanterna jämna – men då blir måttet några millimeter mindre, t.ex. 45 × 95 mm. Välj hyvlat där ytan syns och ohyvlat där styrka och pris är viktigast."
+  },
+  {
+    "fraga": "Varför säger äldre snickare tum?",
+    "svar": "Många som lärde sig yrket när tummåtten fortfarande var standard fortsatte prata tum även efter övergången till millimeter. Benämningar som tvåfyra, tvåsex och trekvarts sitter djupt i byggspråket och förs vidare mellan generationer på arbetsplatsen."
+  },
+  {
+    "fraga": "Hur räknar man om tum till mm?",
+    "svar": "Multiplicera antalet tum med 25,4. Ett tum är exakt 25,4 mm, så 2 tum blir 2 × 25,4 = 50,8 mm och 3/4 tum blir 0,75 × 25,4 ≈ 19,1 mm. Åt andra hållet delar du millimetervärdet med 25,4 för att få tum."
+  },
+  {
+    "fraga": "Är alla reglar exakt måttet?",
+    "svar": "Nej. En regel som säljs som 2×4 är sällan exakt 50 × 100 mm i handen. Är den hyvlad mäter den runt 45 × 95 mm, och även sågat virke kan variera något beroende på fukthalt och tillverkare. Mät alltid själv om det är ett kritiskt mått."
+  },
+  {
+    "fraga": "Vad är skillnaden mellan 45×95 och 2×4?",
+    "svar": "Det är samma virke beskrivet på två sätt. 2×4 är den gamla tumbenämningen (2 tum × 4 tum) medan 45 × 95 mm är det faktiska hyvlade måttet i millimeter. Sågat (ohyvlat) heter samma virke 50 × 100 mm."
+  }
+]

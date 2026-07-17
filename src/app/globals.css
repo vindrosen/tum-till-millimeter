@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+/* Manuell dark mode via .dark på <html> (med systemfallback i layout-scriptet). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f1e8;
+  --bg-soft: #efe6d6;
+  --card: #ffffff;
+  --card-muted: #faf6ef;
+  --border: #e7dcc9;
+  --border-strong: #d8c8ad;
+  --ink: #2b2016;
+  --ink-soft: #52432f;
+  --muted: #6b5c49;
+  --wood: #a9743a;
+  --wood-soft: #f0e2cd;
+  --wood-strong: #6f4a26;
+  --brand: #1c7a43;
+  --brand-strong: #166637;
+  --brand-hover: #155e34;
+  --brand-ink: #ffffff;
+  --brand-soft: #e3f1e6;
+  --highlight: #ffe9a8;
+  --highlight-ink: #5b4300;
+  --ring: #1c7a43;
+  --shadow-sm: 0 1px 2px rgba(70, 48, 24, 0.06), 0 2px 6px rgba(70, 48, 24, 0.06);
+  --shadow: 0 6px 16px -6px rgba(70, 48, 24, 0.18), 0 12px 34px -18px rgba(70, 48, 24, 0.22);
+  --shadow-lg: 0 20px 50px -24px rgba(60, 40, 20, 0.4);
+}
+
+.dark {
+  --bg: #16120e;
+  --bg-soft: #1e1813;
+  --card: #241d16;
+  --card-muted: #2b231b;
+  --border: #3a2f24;
+  --border-strong: #4a3d2e;
+  --ink: #f2eadc;
+  --ink-soft: #d3c6b2;
+  --muted: #a8977f;
+  --wood: #d29a5e;
+  --wood-soft: #33281d;
+  --wood-strong: #e5bd8b;
+  /* Ljusare grön i mörkt läge: ger AA-kontrast både som text på --brand-soft
+     (5,7:1) och som knappbakgrund mot --brand-ink (7,5:1). */
+  --brand: #45b673;
+  --brand-strong: #58c384;
+  --brand-hover: #58c384;
+  --brand-ink: #06140a;
+  --brand-soft: #1a2e20;
+  --highlight: #6b5410;
+  --highlight-ink: #ffe9a8;
+  --ring: #45b673;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 24px 60px -24px rgba(0, 0, 0, 0.7);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-card: var(--card);
+  --color-card-muted: var(--card-muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-wood: var(--wood);
+  --color-wood-soft: var(--wood-soft);
+  --color-wood-strong: var(--wood-strong);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-highlight: var(--highlight);
+  --color-highlight-ink: var(--highlight-ink);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, sans-serif;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--highlight);
+  color: var(--highlight-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Återanvändbara mönster */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow);
+}
+
+.wood-band {
+  background:
+    radial-gradient(120% 140% at 15% 0%, rgba(169, 116, 58, 0.1), transparent 55%),
+    linear-gradient(180deg, var(--bg-soft), var(--bg));
+}
+
+.mark {
+  background: var(--highlight);
+  color: var(--highlight-ink);
+  border-radius: 0.25rem;
+  padding: 0 0.14em;
+}
+
+.tabnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeInUp 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-floaty,
+  .animate-fade-up { animation: none; }
+}
