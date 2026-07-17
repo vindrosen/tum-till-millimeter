@@ -32,7 +32,9 @@ eller **1×6** och snabbt vill veta vad de motsvarar i millimeter.
 | 🔁 **Snabbomvandlare** – tum ⇄ mm live medan du skriver. Stödjer decimaler (`2,5`) och bråk (`3/4`, `1 1/2`). Plus en förklaringsruta och en FAQ-förhandsvisning. | <img src="docs/screenshots/converter.jpg" width="420"> |
 | 📐 **Virkesdimensioner** – jämför hyvlat och ohyvlat mått för reglar, brädor och bjälkar. Växla yta och filtrera på kategori. Egen illustration per dimension. | <img src="docs/screenshots/virke.jpg" width="420"> |
 | 📖 **Byggordbok** – snickarord förklarade med bild, exempel, relaterade ord och vanliga dimensioner. Filtrerbar. | <img src="docs/screenshots/byggordbok.jpg" width="420"> |
-| 🔨 **Byggspråk** – gamla mått och uttryck som fortfarande används: spiklängder (fyrtumsspik = 100-spik), skruvlängder, rördimensioner (varför 1/2″ inte är 12,7 mm) och 18 bygguttryck som syll, hammarband, lockläkt och takstol. Sökbara tabeller med egna illustrationer. | |
+| 🔨 **Byggspråk** – gamla mått som fortfarande används: spiklängder (fyrtumsspik = 100-spik) och skruvlängder i sökbara tabeller med genererade illustrationer och proportionella längdstaplar. | <img src="docs/screenshots/byggsprak.jpg" width="420"> |
+| 🚿 **Rördimensioner** – 1/8″–2″ med DN-beteckning och verklig ytterdiameter, plus förklaringen till varför ett halvtumsrör varken är 12,7 mm invändigt eller utvändigt. | <img src="docs/screenshots/rordimensioner.jpg" width="420"> |
+| 🗣️ **Bygguttryck** – 18 uttryck från bygget – syll, hammarband, lockläkt, takstol, sparre, plint, foder och smyg med flera – som kort med bild, mått, exempel och relaterade ord. | <img src="docs/screenshots/bygguttryck.jpg" width="420"> |
 
 Dessutom: **standardtabell tum → mm**, **FAQ** (även som Schema.org `FAQPage`), **mörkt läge**,
 sticky navigation, favoriter och sökhistorik (localStorage), kopiera dimension, dela, "spara till
