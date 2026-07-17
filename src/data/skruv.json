@@ -1,0 +1,52 @@
+[
+  {
+    "id": "skruv-2",
+    "namn": "2″ träskruv",
+    "tum": "2″",
+    "mm": 50,
+    "anvandning": "Allroundskruv för beslag, lister och tunnare virke.",
+    "bild": "/images/skruv.webp",
+    "aliases": ["2 skruv", "2 tum skruv", "två tum skruv", "tvåtumsskruv", "2 tum träskruv", "50 mm skruv", "50mm skruv", "50-skruv", "skruv 50", "träskruv 50"],
+    "relaterade": ["skruv-2-5", "spik-2"]
+  },
+  {
+    "id": "skruv-2-5",
+    "namn": "2½″ träskruv",
+    "tum": "2 1/2″",
+    "mm": 65,
+    "anvandning": "Vanlig till panel och för att skruva 22 mm virke mot regel.",
+    "bild": "/images/skruv.webp",
+    "aliases": ["2.5 skruv", "2 1/2 skruv", "2 1/2 tum skruv", "65 mm skruv", "65mm skruv", "65-skruv", "skruv 65", "träskruv 65"],
+    "relaterade": ["skruv-2", "skruv-3", "spik-2-5"]
+  },
+  {
+    "id": "skruv-3",
+    "namn": "3″ träskruv",
+    "tum": "3″",
+    "mm": 75,
+    "anvandning": "Standard för regelarbete – går igenom 45 mm virke med gott grepp.",
+    "bild": "/images/skruv.webp",
+    "aliases": ["3 skruv", "3 tum skruv", "tre tum skruv", "tretumsskruv", "75 mm skruv", "75mm skruv", "75-skruv", "skruv 75", "träskruv 75"],
+    "relaterade": ["skruv-2-5", "skruv-4", "spik-3"]
+  },
+  {
+    "id": "skruv-4",
+    "namn": "4″ träskruv",
+    "tum": "4″",
+    "mm": 100,
+    "anvandning": "Kraftig skruv för stomme, dubbla reglar och grövre förband.",
+    "bild": "/images/skruv.webp",
+    "aliases": ["4 skruv", "4 tum skruv", "fyra tum skruv", "fyrtumsskruv", "100 mm skruv", "100mm skruv", "100-skruv", "skruv 100", "träskruv 100"],
+    "relaterade": ["skruv-3", "skruv-5", "spik-4"]
+  },
+  {
+    "id": "skruv-5",
+    "namn": "5″ träskruv",
+    "tum": "5″",
+    "mm": 125,
+    "anvandning": "Extra lång skruv för bjälkar, syllar och tjocka konstruktioner.",
+    "bild": "/images/skruv.webp",
+    "aliases": ["5 skruv", "5 tum skruv", "fem tum skruv", "femtumsskruv", "125 mm skruv", "125mm skruv", "125-skruv", "skruv 125", "träskruv 125"],
+    "relaterade": ["skruv-4", "spik-5"]
+  }
+]

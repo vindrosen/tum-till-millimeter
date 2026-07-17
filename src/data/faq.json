@@ -30,5 +30,21 @@
   {
     "fraga": "Vad är skillnaden mellan 45×95 och 2×4?",
     "svar": "Det är samma virke beskrivet på två sätt. 2×4 är den gamla tumbenämningen (2 tum × 4 tum) medan 45 × 95 mm är det faktiska hyvlade måttet i millimeter. Sågat (ohyvlat) heter samma virke 50 × 100 mm."
+  },
+  {
+    "fraga": "Hur lång är en fyrtumsspik?",
+    "svar": "En fyrtumsspik (4″ spik) är 100 mm lång och kallas därför också 100-spik. Det är den klassiska byggspiken för regelverk och stommar. På samma sätt är en tvåtumsspik 50 mm, en tretumsspik 75 mm, en femtumsspik 125 mm och en sextumsspik 150 mm."
+  },
+  {
+    "fraga": "Varför stämmer inte rördimensioner med verkliga mått?",
+    "svar": "Ett halvtumsrör är varken 12,7 mm invändigt eller utvändigt – ytterdiametern är cirka 21,3 mm. Tumbeteckningen kommer från 1800-talets rör, där måttet ungefär motsvarade innerdiametern. När rören fick tunnare gods behöll man ytterdiametern så att gängor och kopplingar skulle passa, och därför är dagens \"tum\" bara ett nominellt namn (DN-beteckning), inte ett verkligt mått."
+  },
+  {
+    "fraga": "Vad är skillnaden mellan syll och hammarband?",
+    "svar": "Båda är liggande reglar i en väggstomme. Syllen är regeln längst ner som väggen står på, mot grund eller bjälklag. Hammarbandet är regeln längst upp som binder ihop de stående reglarna och som takstolar eller bjälklag vilar på."
+  },
+  {
+    "fraga": "Hur vet jag om en vägg är bärande?",
+    "svar": "En bärande vägg tar upp last från tak eller bjälklag ovanför och får inte tas bort utan att lasten först avväxlas. Väggar i husets mitt, parallella med takåsen, och väggar som bjälklaget vilar på är ofta bärande – men det syns inte alltid utanpå. Kontrollera konstruktionsritningar eller ta hjälp av en konstruktör innan du river."
   }
 ]

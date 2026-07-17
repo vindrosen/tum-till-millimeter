@@ -1,0 +1,62 @@
+[
+  {
+    "id": "spik-2",
+    "namn": "2″ spik (tvåtumsspik)",
+    "tum": "2″",
+    "mm": 50,
+    "anvandning": "Klen spik för läkt, lister, foder och enklare snickerier.",
+    "bild": "/images/spik-2.webp",
+    "aliases": ["2 spik", "2 tum spik", "2tum spik", "två tum spik", "tvåtumsspik", "tvatumsspik", "två tums spik", "50 mm spik", "50mm spik", "50-spik", "50 spik", "spik 50", "spik 50 mm"],
+    "relaterade": ["spik-2-5", "spik-3", "skruv-2"]
+  },
+  {
+    "id": "spik-2-5",
+    "namn": "2½″ spik",
+    "tum": "2 1/2″",
+    "mm": 65,
+    "anvandning": "Vanlig till panel, vindskivor och tunnare brädor.",
+    "bild": "/images/spik-2-5.webp",
+    "aliases": ["2.5 spik", "2 1/2 spik", "2 1/2 tum spik", "två och en halv tum spik", "65 mm spik", "65mm spik", "65-spik", "65 spik", "spik 65", "panelspik"],
+    "relaterade": ["spik-2", "spik-3", "skruv-2-5"]
+  },
+  {
+    "id": "spik-3",
+    "namn": "3″ spik (tretumsspik)",
+    "tum": "3″",
+    "mm": 75,
+    "anvandning": "Allroundspik för läkt, formvirke och lättare regelarbeten.",
+    "bild": "/images/spik-3.webp",
+    "aliases": ["3 spik", "3 tum spik", "3tum spik", "tre tum spik", "tretumsspik", "tre tums spik", "75 mm spik", "75mm spik", "75-spik", "75 spik", "spik 75"],
+    "relaterade": ["spik-2-5", "spik-4", "skruv-3"]
+  },
+  {
+    "id": "spik-4",
+    "namn": "4″ spik (fyrtumsspik)",
+    "tum": "4″",
+    "mm": 100,
+    "anvandning": "Klassisk byggspik för regelverk, stommar och kraftigare virke.",
+    "bild": "/images/spik-4.webp",
+    "aliases": ["4 spik", "4 tum spik", "4tum spik", "fyra tum spik", "fyrtumsspik", "fyrtums spik", "fyra tums spik", "100 mm spik", "100mm spik", "100-spik", "100 spik", "spik 100", "byggspik"],
+    "relaterade": ["spik-3", "spik-5", "skruv-4"]
+  },
+  {
+    "id": "spik-5",
+    "namn": "5″ spik (femtumsspik)",
+    "tum": "5″",
+    "mm": 125,
+    "anvandning": "Grov spik för bjälkar, syllar och tyngre konstruktioner.",
+    "bild": "/images/spik-5.webp",
+    "aliases": ["5 spik", "5 tum spik", "5tum spik", "fem tum spik", "femtumsspik", "fem tums spik", "125 mm spik", "125mm spik", "125-spik", "125 spik", "spik 125"],
+    "relaterade": ["spik-4", "spik-6", "skruv-5"]
+  },
+  {
+    "id": "spik-6",
+    "namn": "6″ spik (sextumsspik)",
+    "tum": "6″",
+    "mm": 150,
+    "anvandning": "Mycket grov spik för grova bjälkar och tunga träförband.",
+    "bild": "/images/spik-6.webp",
+    "aliases": ["6 spik", "6 tum spik", "6tum spik", "sex tum spik", "sextumsspik", "sex tums spik", "150 mm spik", "150mm spik", "150-spik", "150 spik", "spik 150"],
+    "relaterade": ["spik-5", "spik-4"]
+  }
+]

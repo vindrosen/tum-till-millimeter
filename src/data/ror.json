@@ -1,0 +1,92 @@
+[
+  {
+    "id": "ror-1-8",
+    "namn": "1/8″",
+    "tum": "1/8″",
+    "dn": "DN6",
+    "ytterdiameter": 10.2,
+    "anvandning": "Klena kopplingar, manometrar och smörjledningar.",
+    "aliases": ["1/8 rör", "1/8 tum rör", "åttondels rör", "dn6", "dn 6", "rör 10", "10.2 mm rör"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-1-4",
+    "namn": "1/4″",
+    "tum": "1/4″",
+    "dn": "DN8",
+    "ytterdiameter": 13.5,
+    "anvandning": "Tryckluft, mindre kopplingar och instrument.",
+    "aliases": ["1/4 rör", "1/4 tum rör", "kvartstums rör", "kvarts rör", "dn8", "dn 8", "rör 13"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-3-8",
+    "namn": "3/8″",
+    "tum": "3/8″",
+    "dn": "DN10",
+    "ytterdiameter": 17.2,
+    "anvandning": "Klenare vatten- och gasledningar, kopplingsledningar.",
+    "aliases": ["3/8 rör", "3/8 tum rör", "dn10", "dn 10", "rör 17"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-1-2",
+    "namn": "1/2″",
+    "tum": "1/2″",
+    "dn": "DN15",
+    "ytterdiameter": 21.3,
+    "anvandning": "Standard för tappvatten, radiatorkopplingar och blandare.",
+    "aliases": ["1/2 rör", "1/2 tum rör", "halvtums rör", "halvtumsrör", "halv tum rör", "dn15", "dn 15", "rör 21"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-3-4",
+    "namn": "3/4″",
+    "tum": "3/4″",
+    "dn": "DN20",
+    "ytterdiameter": 26.9,
+    "anvandning": "Vatten- och värmeledningar, utekranar och pumpanslutningar.",
+    "aliases": ["3/4 rör", "3/4 tum rör", "trekvarts rör", "trekvartsrör", "trekvartstums rör", "dn20", "dn 20", "rör 27"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-1",
+    "namn": "1″",
+    "tum": "1″",
+    "dn": "DN25",
+    "ytterdiameter": 33.7,
+    "anvandning": "Huvudledningar för vatten och värme, pannrum.",
+    "aliases": ["1 rör", "1 tum rör", "entums rör", "entumsrör", "dn25", "dn 25", "rör 33"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-1-1-4",
+    "namn": "1¼″",
+    "tum": "1 1/4″",
+    "dn": "DN32",
+    "ytterdiameter": 42.4,
+    "anvandning": "Grövre värmestammar och avloppsanslutningar för handfat.",
+    "aliases": ["1 1/4 rör", "1 1/4 tum rör", "1.25 rör", "dn32", "dn 32", "rör 42"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-1-1-2",
+    "namn": "1½″",
+    "tum": "1 1/2″",
+    "dn": "DN40",
+    "ytterdiameter": 48.3,
+    "anvandning": "Avlopp för diskbänk och golvbrunn, större värmeledningar.",
+    "aliases": ["1 1/2 rör", "1 1/2 tum rör", "1.5 rör", "en och en halv tum rör", "dn40", "dn 40", "rör 48"],
+    "relaterade": []
+  },
+  {
+    "id": "ror-2",
+    "namn": "2″",
+    "tum": "2″",
+    "dn": "DN50",
+    "ytterdiameter": 60.3,
+    "anvandning": "Grova stammar, samlingsledningar och industri.",
+    "aliases": ["2 rör", "2 tum rör", "tvåtums rör", "tvåtumsrör", "två tum rör", "dn50", "dn 50", "rör 60"],
+    "relaterade": []
+  }
+]
