@@ -79,13 +79,13 @@ export default function SpikTabell() {
                     <td className="min-w-48 px-4 py-3 text-sm text-ink-soft">{s.anvandning}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-3">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-white">
+                        <span className="flex h-10 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-white">
                           <Image
                             src={withBase(s.bild)}
                             alt={`Illustration av ${s.namn}`}
-                            width={80}
-                            height={80}
-                            className="h-8 w-8 object-contain"
+                            width={160}
+                            height={160}
+                            className="h-auto w-full object-contain"
                           />
                         </span>
                         <span
